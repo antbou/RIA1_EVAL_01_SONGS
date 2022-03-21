@@ -8,7 +8,6 @@
 "use strict";
 
 const TooShortSongException = require("./TooShortSongException.js");
-const DateOfBirthException = require("../Artist/DateOfBirthException.js");
 
 module.exports = class Song {
 

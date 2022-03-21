@@ -8,7 +8,6 @@
 "use strict";
 
 const EmptySongsListException = require("./EmptySongsListException.js");
-const DateOfBirthException = require("../Artist/DateOfBirthException.js");
 
 module.exports = class Playlist {
 
