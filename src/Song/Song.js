@@ -8,6 +8,7 @@
 "use strict";
 
 const TooShortSongException = require("./TooShortSongException.js");
+const DateOfBirthException = require("../Artist/DateOfBirthException.js");
 
 module.exports = class Song {
 
@@ -26,7 +27,9 @@ module.exports = class Song {
      * @exception Throws TooShortLengthException if the song's length do not reach 10 seconds.
      */
     constructor(title, length, artists) {
-        throw new Error();
+        this.#title = title
+        this.length = length
+        this.#artists = artists
     }
 
     /**
@@ -34,7 +37,7 @@ module.exports = class Song {
      * @returns {*}
      */
     get title(){
-        throw new Error();
+        return this.#title
     }
 
     /**
@@ -42,7 +45,7 @@ module.exports = class Song {
      * @returns {*}
      */
     get artists(){
-        throw new Error();
+        return this.#artists
     }
 
     /**
@@ -50,7 +53,7 @@ module.exports = class Song {
      * @returns {*}
      */
     get length(){
-        throw new Error();
+        return this.#length
     }
 
     /**
@@ -59,7 +62,11 @@ module.exports = class Song {
      * @exception Throws TooShortLengthException if the song's length do not reach 10 seconds.
      */
     set length(value){
-        throw new Error();
+        if (value <= 9){
+            throw new TooShortSongException('length cannot be smaller than 9')
+        }
+
+        this.#length = value
     }
     //endregion public methods
 
