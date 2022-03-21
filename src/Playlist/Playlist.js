@@ -8,6 +8,7 @@
 "use strict";
 
 const EmptySongsListException = require("./EmptySongsListException.js");
+const DateOfBirthException = require("../Artist/DateOfBirthException.js");
 
 module.exports = class Playlist {
 
@@ -63,7 +64,10 @@ module.exports = class Playlist {
      * @exception Throws EmptySongsListException if the newListOfSongs is empty
      */
     initSongs(newListOfSongs){
-        throw new Error();
+        if (newListOfSongs == null){
+            throw new EmptySongsListException('initSongs cannot be null')
+        }
+        this.#songs = newListOfSongs
     }
     //endregion public methods
 
