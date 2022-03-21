@@ -28,6 +28,13 @@ module.exports = class Artist{
         this.#dateOfBirth = dateOfBirth
     }
 
+    get dateOfBirth(){
+        if(this.#dateOfBirth == null){
+            throw new DateOfBirthException('dateOfBirth cannot be null')
+        }
+        return this.#dateOfBirth
+    }
+
     /**
      * @brief This method returns artist string
      * @param withAge : boolean must add the dateOfBirth if true
@@ -39,7 +46,7 @@ module.exports = class Artist{
         let fullname = this.#firstname + ' ' + this.#lastname
 
         if (withDateOfBirth){
-            return fullname + ' ' + this.#dateOfBirth.toString()
+            return fullname + ' ' + this.dateOfBirth.toString()
         }
         return fullname
     }
