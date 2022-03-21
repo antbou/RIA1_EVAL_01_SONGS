@@ -23,7 +23,16 @@ module.exports = class Artist{
      * @param dateOfBirth
      */
     constructor (firstname, lastname, dateOfBirth = null) {
-        throw new Error();
+        this.#firstname = firstname
+        this.#lastname = lastname
+        this.#dateOfBirth = dateOfBirth
+    }
+
+    get dateOfBirth(){
+        if(this.#dateOfBirth == null){
+            throw new DateOfBirthException('dateOfBirth cannot be null')
+        }
+        return this.#dateOfBirth
     }
 
     /**
@@ -33,7 +42,13 @@ module.exports = class Artist{
      * @exception throws DateOfBirthException if DateOfBirth was not provided
      */
     toString(withDateOfBirth = false){
-        throw new Error();
+
+        let fullname = this.#firstname + ' ' + this.#lastname
+
+        if (withDateOfBirth){
+            return fullname + ' ' + this.dateOfBirth.toString()
+        }
+        return fullname
     }
     //endregion public methods
 
